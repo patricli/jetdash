@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="24db158adbe4770009a2ffb41d9619a7" sys_domain="global" table="x_snc_jetblue_dash_p1_incident_scores" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>p1_score</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-05 01:43:08</sys_created_on>
+            <sys_id>2c925476dba833007bc49b81ca961953</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_jetblue_dash_p1_incident_scores" sys_domain="global" view="Default view">24db158adbe4770009a2ffb41d9619a7</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-05 01:43:08</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_created_on</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-05 01:43:08</sys_created_on>
+            <sys_id>ac925476dba833007bc49b81ca961953</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_jetblue_dash_p1_incident_scores" sys_domain="global" view="Default view">24db158adbe4770009a2ffb41d9619a7</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-05 01:43:08</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_created_by</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-05 01:43:08</sys_created_on>
+            <sys_id>20925476dba833007bc49b81ca961954</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_jetblue_dash_p1_incident_scores" sys_domain="global" view="Default view">24db158adbe4770009a2ffb41d9619a7</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-05 01:43:08</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sys_updated_on</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-05 01:43:08</sys_created_on>
+            <sys_id>a0925476dba833007bc49b81ca961954</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_snc_jetblue_dash_p1_incident_scores" sys_domain="global" view="Default view">24db158adbe4770009a2ffb41d9619a7</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-05 01:43:08</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_snc_jetblue_dash_p1_incident_scores</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-04-02 23:07:43</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>24db158adbe4770009a2ffb41d9619a7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_snc_jetblue_dash_p1_incident_scores</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+            <sys_update_name>sys_ui_section_24db158adbe4770009a2ffb41d9619a7</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-04-02 23:07:43</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

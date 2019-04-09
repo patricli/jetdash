@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="p1 incident scores" max_length="40" name="x_snc_jetblue_dash_p1_incident_scores" type="collection">
+        <element label="P1 score" max_length="40" name="p1_score" type="string"/>
+    </element>
+</database>

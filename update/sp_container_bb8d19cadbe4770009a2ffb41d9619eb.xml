@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Jetblue Index - Container 2</name>
+        <order>2</order>
+        <sp_page display_value="jetblue_index">455dd1cadbe4770009a2ffb41d9619a1</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-02 23:15:18</sys_created_on>
+        <sys_id>bb8d19cadbe4770009a2ffb41d9619eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Jetblue Index - Container 2</sys_name>
+        <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+        <sys_update_name>sp_container_bb8d19cadbe4770009a2ffb41d9619eb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-02 23:15:18</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>

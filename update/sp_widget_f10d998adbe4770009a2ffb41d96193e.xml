@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function($scope) {
+	var c = this;
+	c.$onInit = function(){
+		$scope.$on('incidentClicked',itemClicked);
+	}
+	function itemClicked(event,p){
+		c.server.get({priority:p}).then(function(response){
+			c.data.listItems = response.data.listItems;
+		})
+	}
+
+	//init function
+	c.updateSysID = updateSysID;
+	
+	//broadcast event
+	function updateSysID(sys_id) {
+		$rootScope.$broadcast('incidentClickedSYSID',sys_id);
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+$pe-theme-color: #264773 !default;
+$pe-theme-background-color: #00205b !default;
+$pe-text-color: #fff !default;
+$pe-sub-text-color: #68acd8 !default;
+
+.people-card-flyout {
+  
+   .col-xs-8 {
+      //width: 100%;
+      margin-top: 20px;
+    }
+  color: $pe-text-color;
+  .panel {
+    border: 0;
+    color: $pe-text-color;
+    background-color: transparent;
+    .panel-heading {
+      border-bottom: 0 !important;
+      background-color: $pe-theme-color !important;
+      color: $pe-text-color !important;
+      font-size: 12px;
+      padding: 14px;
+      text-transform: uppercase;
+    }
+   
+    .panel-body {
+      background-color: $pe-theme-background-color;
+      color: $pe-text-color;
+      h4 {
+        font-size: 24px;
+        margin-top: -5px !important;
+      }
+      .sub-text {
+        color: $pe-sub-text-color;
+        font-size: 10px;
+        margin: -5px 0 -5px 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>jetblue_description_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>JetBlue Description Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	/* populate the 'data' object */
+	/* e.g., data.table = $sp.getValue('table'); */
+	if (input) {
+
+		if (input.priority) {
+			//data.listItems =[];
+			var gr = new GlideRecord('incident');
+			gr.addQuery('priority', input.priority );
+			gr.addQuery('state', 2)
+			gr.setLimit(1);
+			gr.query();
+			data.listItems = [];
+			while(gr.next()){
+				data.listItems.push({
+					short_description:gr.short_description.getDisplayValue(),
+					assigned_to:gr.assigned_to.getDisplayValue(),
+					priority:gr.priority.getDisplayValue(),
+					category:gr.category.getDisplayValue(),
+					req_number:gr.number.getDisplayValue(),
+					created:gr.sys_created_on.getDisplayValue(),
+					state:gr.state.getDisplayValue(),
+					cmdb_ci:gr.cmdb_ci.getDisplayValue(),
+					sys_id: gr.sys_id.toString(),
+					count_widget: $sp.getWidget("jetblue_timer_widget", {current_sys_id:gr.sys_id.toString()})
+				})
+			}
+			return;
+
+		}
+	}
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-02 23:12:59</sys_created_on>
+        <sys_id>f10d998adbe4770009a2ffb41d96193e</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>JetBlue Description Widget</sys_name>
+        <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+        <sys_update_name>sp_widget_f10d998adbe4770009a2ffb41d96193e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-02 23:27:24</sys_updated_on>
+        <template><![CDATA[<div class="row people-card-flyout" ng-repeat="item in c.data.listItems">
+  <div class="col-xs-8">
+    <div class="panel">
+      <div class="panel-heading">Major Incident
+        <i class="pull-right">
+        </i>
+        <p>
+          {{item.req_number}}
+        </p>
+      </div>
+      <div class="sub-text" class="panel-body">
+        <h4 ng-click="c.updateSysID(item.sys_id)">{{item.short_description}}</h4>
+        <div class="sub-text">
+          <span>Created: {{item.created}}</span>
+          <span>Assignted to: {{item.assigned_to}}</span>
+          <span>Priority: {{item.priority}}</span>
+          <span>Category: {{item.category}}</span>
+          <span>State: {{item.state}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <sp-widget widget="item.count_widget"></sp-widget>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+]]></template>
+    </sp_widget>
+</record_update>

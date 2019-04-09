@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function ($scope, $interval) {
+  /* widget controller */
+  var c = this;
+
+  c.$onInit = function () {
+		/*Increment timer by 1 second*/
+    $interval(updateTimeFromNow, 1000)
+    updateTimeFromNow();
+  };
+
+	/* ClockTimer*/
+  function updateTimeFromNow() {
+    var momentCreated = moment(c.data.createdOn, "YYYY-MM-DD HH-mm-ss");
+    var momentNow = moment();
+    var difference = moment.duration(momentNow.diff(momentCreated));
+    c.data.hours = difference.hours();
+    c.data.hours = (c.data.hours.toString().length == 1) ? "0" + c.data.hours : c.data.hours;
+    c.data.minutes = difference.minutes();
+    c.data.minutes = (c.data.minutes.toString().length == 1) ? "0" + c.data.minutes : c.data.minutes;
+    c.data.seconds = difference.seconds();
+    c.data.seconds = (c.data.seconds.toString().length == 1) ? "0" + c.data.seconds : c.data.seconds;
+    c.data.days = parseInt(difference.asDays());
+   // console.log(difference.asDays())
+  }
+
+}
+
+
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css>
+
+
+body{
+  text-align: center;
+  background: #00ECB9;
+  font-family: sans-serif;
+  font-weight: 100;
+}
+
+h1{
+  color: #68acd8;
+  font-weight: 100;
+  font-size: 18px;
+  margin: 10px 0px 5px;
+  text-align: center;
+}
+
+#clockdiv{
+  font-family: sans-serif;
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  justify-content: center;
+  font-size: 14px;
+  //margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#clockdiv &gt; div{
+  padding: 10px;
+  border-radius: 3px;
+  background:#264773;
+  display: inline-block;
+  justify-content: center;
+}
+
+#clockdiv div &gt; span{
+  padding: 14px;
+  border-radius: 3px;
+  background: #264773;
+  display: inline-block;
+  justify-content: center;
+}
+
+.smalltext{
+  padding-top: 1px;
+  font-size: 14px;
+  color: #68acd8;
+}
+
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>jetblue_timer_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Jetblue Timer Widget</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function () {  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+  if (options) {
+    if (options.current_sys_id) {
+
+      var grIncident = new GlideRecord('incident');
+      if (grIncident.get(options.current_sys_id)) {
+        data.createdOn = grIncident.sys_created_on.getDisplayValue();
+      }
+      return;
+    }
+  }
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-02 23:20:02</sys_created_on>
+        <sys_id>8dae950edbe4770009a2ffb41d96198f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Jetblue Timer Widget</sys_name>
+        <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+        <sys_update_name>sp_widget_8dae950edbe4770009a2ffb41d96198f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-02 23:21:12</sys_updated_on>
+        <template><![CDATA[<div>
+  <h1>Duration</h1>
+  <div id="clockdiv" class="clockdiv" >
+    <div>
+      <span class="days">Days</span>
+      <div class="smalltext"> {{c.data.days}}</div>
+    </div>
+    <div>
+      <span class="hours">Hrs</span>
+      <div class="smalltext">{{c.data.hours}}</div>
+    </div>
+    <div>
+      <span class="minutes">Mins</span>
+      <div class="smalltext">{{c.data.minutes}}</div>
+    </div>
+    <div>
+      <span class="seconds">Secs</span>
+      <div class="smalltext">{{c.data.seconds}}</div>
+    </div>
+  </div>
+</div>
+
+]]></template>
+    </sp_widget>
+</record_update>

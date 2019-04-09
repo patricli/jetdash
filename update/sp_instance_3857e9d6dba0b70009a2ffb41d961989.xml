@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="3">b101a18edbe4770009a2ffb41d9619ff</sp_column>
+        <sp_widget display_value="Jetblue Update Widget">afe665d6dba0b70009a2ffb41d96193b</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-03 18:36:28</sys_created_on>
+        <sys_id>3857e9d6dba0b70009a2ffb41d961989</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+        <sys_update_name>sp_instance_3857e9d6dba0b70009a2ffb41d961989</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-03 18:36:28</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="delete_multiple" query="documentkey=3857e9d6dba0b70009a2ffb41d961989"/>
+</record_update>

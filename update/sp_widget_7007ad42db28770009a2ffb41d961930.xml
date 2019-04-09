@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function PeopleCardFlyoutController() {
+  var c = this;
+	
+  c.toggleTrends = toggleTrends;
+  c.$onInit = function() {
+    c.isVisible = false;
+  };
+
+  function toggleTrends() {
+    c.isVisible = !c.isVisible;
+  }
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>$pe-theme-color: #264773 !default;
+$pe-theme-background-color: #00205b !default;
+$pe-text-color: #fff !default;
+$pe-sub-text-color: #68acd8 !default;
+$pe-status-color-normal: #29bd00 !default;
+
+.people-card-flyout {
+  .badge {
+    border-radius: 100px;
+    float: right;
+    font-size: 12px;
+    font-weight: normal;
+    height: 28px;
+    margin-top: -5px;
+    padding-top: 7px;
+  }
+  .photo {
+    img {
+      height: 40px;
+      width: 40px;
+    }
+    &amp;:after {
+      background-color: $pe-status-color-normal;
+      border-radius: 50%;
+      content: '';
+      height: 10px;
+      left: 45px;
+      position: absolute;
+      top: 78%;
+      width: 10px;
+    }
+  }
+  color: $pe-text-color;
+  .panel {
+    border: 0;
+    color: $pe-text-color;
+    background-color: transparent;
+    .panel-heading {
+      border-bottom: 0 !important;
+      background-color: $pe-theme-color !important;
+      color: $pe-text-color !important;
+      font-size: 12px;
+      padding: 14px;
+      text-transform: uppercase;
+    }
+    .panel-body {
+      background-color: $pe-theme-background-color;
+      color: $pe-text-color;
+      h4 {
+        font-size: 24px;
+        margin-top: -5px !important;
+      }
+      .user-sub-text {
+        color: $pe-sub-text-color;
+        font-size: 12px;
+        margin-bottom: -5px;
+        margin-top: -5px;
+      }
+      .sub-text {
+        color: $pe-sub-text-color;
+        font-size: 10px;
+        margin: -5px 0 -5px 0;
+        text-transform: uppercase;
+      }
+    }
+    .panel-vips {
+      .panel-heading {
+        background-color: #394b6b !important;
+        border-radius: 0;
+        padding-bottom: 15px;
+      }
+      .star-ribbon {
+        margin-right: 16px;
+      }
+      .lower-case {
+        margin-left: -2px;
+      }
+      .badge {
+        background-color: $pe-theme-color;
+        width: 76px;
+      }
+      .user-sub-text {
+        margin-top: -10px;
+      }
+      .row {
+        margin-bottom: 30px;
+        &amp;:first-child {
+          margin-top: 5px;
+        }
+        &amp;:last-child {
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+  .panel-vips.ng-hide-add,
+  .panel-vips.ng-hide-remove {
+    -webkit-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+    display: block !important;
+    opacity: 1;
+  }
+  .panel-vips.ng-hide {
+    opacity: 0;
+  }
+  .header-left-icon {
+    margin: 0 0 7px 11%;
+    span {
+      margin-right: 17%;
+    }
+  }
+  .add-circle,
+  .close-circle {
+    height: 23px;
+    margin-top: -3px;
+    .add-circle,
+    .close-circle {
+      height: 23px;
+      margin-top: -3px;
+      width: 23px;
+    }
+    width: 23px;
+  }
+  .star-ribbon {
+    height: 24px;
+    width: 18px;
+  }
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>jetblue_participants_widget</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Jetblue Participants Widget</name>
+        <option_schema>[{"name":"department","default_value":"0087","section":"other","label":"Department","type":"string"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	var users = new PeopleCardFlyout();
+	data.users = users.getUsers(options.department);
+	console.log(JSON.stringify(data.users))
+	
+	var gr = new GlideRecord('notify_number');
+	gr.query();
+
+	
+	data.listItems = [];
+
+	if(gr.next()){
+		data.listItems.push({
+			phone_number: gr.phone_number.getDisplayValue(),
+			notify_group:gr.notify_group.getDisplayValue(),
+			number_owner: gr.owner.getDisplayValue()
+		})
+	}
+	
+	
+})();
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-02 23:56:37</sys_created_on>
+        <sys_id>7007ad42db28770009a2ffb41d961930</sys_id>
+        <sys_mod_count>48</sys_mod_count>
+        <sys_name>Jetblue Participants Widget</sys_name>
+        <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+        <sys_update_name>sp_widget_7007ad42db28770009a2ffb41d961930</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-09 17:42:35</sys_updated_on>
+        <template><![CDATA[<div ng-include="'conference-card-flyout-svgs'" ></div>
+<div class="row people-card-flyout">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <!--{{::options.title}}-->
+      <div class="panel-heading" ng-click="c.toggleTrends()">CONFERENCE CALL DASHBOARD
+        <i class="pull-right">
+          <div ng-hide="c.isVisible === true">
+            <svg class="add-circle">
+              <use xlink:href="#add-circle"></use>
+            </svg>
+          </div>
+          <div ng-hide="c.isVisible === false">
+            <svg class="close-circle">
+              <use xlink:href="#close-circle"></use>
+            </svg>
+          </div>
+        </i>
+      </div>
+      <div class="panel-body" ng-repeat="item in c.data.listItems">
+        <div class="row text-center">
+          <div class="col-xs-4">
+            <h4>{{item.phone_number}}</h4>
+            <p class="sub-text">Number</p>
+          </div>
+          <div class="col-xs-4">
+            <h4 class="header-left-icon">
+              <span>{{item.notify_group}}</span>
+            </h4>
+            <p class="sub-text">Notify Group</p>
+          </div>
+          <div class="col-xs-4">
+            <h4>{{item.number_owner}}</h4>
+            <p class="sub-text">Owner</p>
+          </div>
+        </div>
+      </div>
+      <div ng-hide="c.isVisible == false" class="panel-vips">
+        <div class="panel-heading">
+          <svg class="star-ribbon pull-left">
+            <use xlink:href="#star-ribbon"></use>
+          </svg>
+          Participants
+        </div>
+        <div class="panel-body">
+          <div class="row" ng-repeat="user in ::c.data.users">
+            <div class="col-xs-2">
+              <div class="photo">
+                <img class="img-circle" ng-src="{{::user.photo.display_value}}">
+              </div>
+            </div>
+            <div class="col-xs-7">
+              <h5>{{::user.first_name.display_value}} {{::user.last_name.display_value}}</h5>
+              <p class="user-sub-text">{{::user.title.display_value}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

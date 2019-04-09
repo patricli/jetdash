@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_snc_jetblue_dash.PeopleCardFlyout</api_name>
+        <client_callable>true</client_callable>
+        <description/>
+        <name>PeopleCardFlyout</name>
+        <script><![CDATA[var PeopleCardFlyout = Class.create();
+PeopleCardFlyout.prototype = {
+  initialize: function() {},
+
+  getNumberRange: function(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+
+  getUsers: function(id) {
+    var userGr = new GlideRecord('sys_user');
+    userGr.addQuery('department.id', id);
+    userGr.orderBy('sys_created_on');
+    userGr.query();
+    var users = [];
+    var fields = 'department, first_name, last_name, title, photo';
+    while (userGr.next()) {
+      obj = {};
+      obj.timeAgo = this.getNumberRange(1, 59);
+      $sp.getRecordElements(obj, userGr, fields);
+      users.push(obj);
+    }
+    return users;
+  },
+
+  type: 'PeopleCardFlyout'
+};
+]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-04-03 00:01:57</sys_created_on>
+        <sys_id>1c2869c2db28770009a2ffb41d96191e</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>PeopleCardFlyout</sys_name>
+        <sys_package display_value="JetBlue Dashboard" source="x_snc_jetblue_dash">7c0dfc46dba4770009a2ffb41d9619b0</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="JetBlue Dashboard">7c0dfc46dba4770009a2ffb41d9619b0</sys_scope>
+        <sys_update_name>sys_script_include_1c2869c2db28770009a2ffb41d96191e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-04-03 18:08:10</sys_updated_on>
+    </sys_script_include>
+</record_update>
